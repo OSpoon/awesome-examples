@@ -1,0 +1,19 @@
+{
+  "name": "markdown-it-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "esno ./src/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/markdown-it": "^12.2.3",
+    "common": "workspace:^1.0.0",
+    "highlight.js": "^11.6.0",
+    "markdown-it": "^13.0.1",
+    "markdown-it-container": "^3.0.0"
+  }
+}
