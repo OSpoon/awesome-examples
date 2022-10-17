@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "preinstall": "npx only-allow yarn"
+    "preinstall": "npx only-allow pnpm"
   },
   "keywords": [],
   "author": "",

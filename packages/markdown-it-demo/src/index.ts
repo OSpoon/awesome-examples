@@ -4,7 +4,7 @@ import fs from "fs-extra";
 import markdownIt from "markdown-it";
 import hljs from "highlight.js";
 import Token from "markdown-it/lib/token";
-import { openBrowser, startServer } from "../../common/src";
+import { openBrowser } from "../../common/src";
 
 // 实例化md-it对象
 const md = new markdownIt({

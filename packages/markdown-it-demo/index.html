@@ -16,6 +16,10 @@
         background-color: #f9f9f9;
         border: 1px solid #ffc517;
     }
+    .hljs {
+        padding: 5px 8px;
+        border-radius: 5px;
+    }
 </style>
 
 <h2>目录：</h2>
@@ -35,9 +39,8 @@
 <li>执行<code>pnpm i -D @iconify-json/ic@&quot;1.1.4&quot;</code>安装<code>@iconify-json/ic</code>模块；</li>
 <li>更新Unocss插件配置：</li>
 </ol>
-<pre><code class="language-typescript">
-                <pre class="hljs"><code><span>1</span><span class="hljs-keyword">import</span> { presetUno, presetAttributify, presetIcons } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;unocss&quot;</span>;
-<span>2</span><span class="hljs-keyword">import</span> <span class="hljs-title class_">Unocss</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;unocss/vite&quot;</span>;
+<pre class="hljs"><code><span class="hljs-keyword">import</span> { presetUno, presetAttributify, presetIcons } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;unocss&quot;</span>;
+<span class="hljs-keyword">import</span> <span class="hljs-title class_">Unocss</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;unocss/vite&quot;</span>;
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-title function_">defineConfig</span>({
   <span class="hljs-attr">plugins</span>: [
@@ -50,7 +53,7 @@
     })
   ]
 })
-</code></pre></code></pre>
+</code></pre>
 <h3>编写</h3>
 <ol start="4">
 <li>编写Button组件（<code>./src/Button/index.tsx</code>）：
@@ -60,8 +63,7 @@
 </ol>
 </li>
 </ol>
-<pre><code class="language-typescript">
-                <pre class="hljs"><code><span class="hljs-keyword">import</span> { defineComponent, <span class="hljs-title class_">PropType</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;vue&quot;</span>;
+<pre class="hljs"><code><span class="hljs-keyword">import</span> { defineComponent, <span class="hljs-title class_">PropType</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;vue&quot;</span>;
 <span class="hljs-keyword">import</span> <span class="hljs-string">&quot;uno.css&quot;</span>;
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-title function_">defineComponent</span>({
@@ -87,13 +89,12 @@
         <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span>
     }
 })
-</code></pre></code></pre>
+</code></pre>
 <h3>挂载</h3>
 <ol start="5">
 <li>在app-default视图容器挂载组件：</li>
 </ol>
-<pre><code class="language-typescript">
-                <pre class="hljs"><code><span class="hljs-keyword">import</span> { createApp } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;vue/dist/vue.esm-bundler.js&quot;</span>;
+<pre class="hljs"><code><span class="hljs-keyword">import</span> { createApp } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;vue/dist/vue.esm-bundler.js&quot;</span>;
 
 <span class="hljs-keyword">import</span> <span class="hljs-title class_">GButton</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./Button&quot;</span>;
 <span class="hljs-title function_">createApp</span>({
@@ -104,7 +105,7 @@
 	`</span> })
     .<span class="hljs-title function_">component</span>(<span class="hljs-title class_">GButton</span>.<span class="hljs-property">name</span>, <span class="hljs-title class_">GButton</span>)
     .<span class="hljs-title function_">mount</span>(<span class="hljs-string">&quot;#app-default&quot;</span>);
-</code></pre></code></pre>
+</code></pre>
 <h3>预览</h3>
 <p><img src="https://cdn.nlark.com/yuque/0/2022/png/2373519/1665367174578-9c0450ae-2b63-43b5-b228-5b3e75e91e4c.png#clientId=u08d9de39-d6ed-4&amp;crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;errorMessage=unknown%20error&amp;from=paste&amp;height=158&amp;id=u153516ce&amp;margin=%5Bobject%20Object%5D&amp;name=default-button-unocss.png&amp;originHeight=158&amp;originWidth=414&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=3465&amp;status=error&amp;style=none&amp;taskId=u15235670-8c59-4156-941b-a061f4f9840&amp;title=&amp;width=414" alt="default-button-unocss.png"></p>
 <h2>增加自定义颜色</h2>
@@ -112,25 +113,22 @@
 <ol>
 <li>定义一组组件默认支持的样式列表：</li>
 </ol>
-<pre><code class="language-typescript">
-                <pre class="hljs"><code><span class="hljs-keyword">export</span> <span class="hljs-keyword">type</span> <span class="hljs-title class_">IColor</span> = <span class="hljs-string">&#x27;black&#x27;</span> | <span class="hljs-string">&#x27;gray&#x27;</span> | <span class="hljs-string">&#x27;red&#x27;</span> | <span class="hljs-string">&#x27;yellow&#x27;</span> | <span class="hljs-string">&#x27;green&#x27;</span> | <span class="hljs-string">&#x27;blue&#x27;</span> | <span class="hljs-string">&#x27;indigo&#x27;</span> | <span class="hljs-string">&#x27;purple&#x27;</span> | <span class="hljs-string">&#x27;pink&#x27;</span>;
-</code></pre></code></pre>
+<pre class="hljs"><code><span class="hljs-keyword">export</span> <span class="hljs-keyword">type</span> <span class="hljs-title class_">IColor</span> = <span class="hljs-string">&#x27;black&#x27;</span> | <span class="hljs-string">&#x27;gray&#x27;</span> | <span class="hljs-string">&#x27;red&#x27;</span> | <span class="hljs-string">&#x27;yellow&#x27;</span> | <span class="hljs-string">&#x27;green&#x27;</span> | <span class="hljs-string">&#x27;blue&#x27;</span> | <span class="hljs-string">&#x27;indigo&#x27;</span> | <span class="hljs-string">&#x27;purple&#x27;</span> | <span class="hljs-string">&#x27;pink&#x27;</span>;
+</code></pre>
 <ol start="2">
 <li>为组件增加<code>color</code>属性，通过<code>props</code>接收：</li>
 </ol>
-<pre><code class="language-typescript">
-                <pre class="hljs"><code><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> props = {
+<pre class="hljs"><code><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> props = {
     <span class="hljs-attr">color</span>: {
         <span class="hljs-attr">type</span>: <span class="hljs-title class_">String</span> <span class="hljs-keyword">as</span> <span class="hljs-title class_">PropType</span>&lt;<span class="hljs-title class_">IColor</span>&gt;,
         <span class="hljs-attr">default</span>: <span class="hljs-string">&#x27;blue&#x27;</span>,
     }
 }
-</code></pre></code></pre>
+</code></pre>
 <ol start="3">
 <li>通过模板语法动态更新组件样式：</li>
 </ol>
-<pre><code class="language-typescript">
-                <pre class="hljs"><code>{
+<pre class="hljs"><code>{
   <span class="hljs-keyword">return</span> <span class="hljs-function">() =&gt;</span> <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">button</span>
     <span class="hljs-attr">class</span>=<span class="hljs-string">{</span>`
     <span class="hljs-attr">py-2</span> 
@@ -149,13 +147,12 @@
     {slots.default ? slots.default() : &#x27;&#x27;}
   <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span>
 }
-</code></pre></code></pre>
+</code></pre>
 <h3>挂载</h3>
 <ol start="4">
 <li>更新入口模板：</li>
 </ol>
-<pre><code class="language-typescript">
-                <pre class="hljs"><code><span class="hljs-keyword">import</span> { createApp } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;vue/dist/vue.esm-bundler.js&quot;</span>;
+<pre class="hljs"><code><span class="hljs-keyword">import</span> { createApp } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;vue/dist/vue.esm-bundler.js&quot;</span>;
 
 <span class="hljs-keyword">import</span> <span class="hljs-title class_">GButton</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./Button&quot;</span>;
 <span class="hljs-title function_">createApp</span>({
@@ -170,10 +167,9 @@
   `</span> })
   .<span class="hljs-title function_">component</span>(<span class="hljs-title class_">GButton</span>.<span class="hljs-property">name</span>, <span class="hljs-title class_">GButton</span>)
   .<span class="hljs-title function_">mount</span>(<span class="hljs-string">&quot;#app-default&quot;</span>);
-</code></pre></code></pre>
+</code></pre>
 <h3>配置</h3>
-<pre><code class="language-typescript">
-                <pre class="hljs"><code><span class="hljs-keyword">const</span> colors = [
+<pre class="hljs"><code><span class="hljs-keyword">const</span> colors = [
     <span class="hljs-string">&quot;white&quot;</span>,
     <span class="hljs-string">&quot;black&quot;</span>,
     <span class="hljs-string">&quot;gray&quot;</span>,
@@ -204,7 +200,7 @@
 <span class="hljs-title class_">Unocss</span>({
     safelist,
 })
-</code></pre></code></pre>
+</code></pre>
 <h3>预览</h3>
 <p><img src="https://cdn.nlark.com/yuque/0/2022/png/2373519/1665369993136-79605ce3-f4f7-458d-a9c9-583c9fd55e23.png#clientId=udaf71914-ea21-4&amp;crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;errorMessage=unknown%20error&amp;from=paste&amp;height=165&amp;id=ueb5e7f22&amp;margin=%5Bobject%20Object%5D&amp;name=default-button-unocss-color.png&amp;originHeight=165&amp;originWidth=571&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=7139&amp;status=error&amp;style=none&amp;taskId=ud48d217d-39c5-4904-95b0-5a595f13440&amp;title=&amp;width=571" alt="default-button-unocss-color.png"></p>
 <h2>增加自定义图标</h2>
@@ -212,8 +208,7 @@
 <ol>
 <li>更新安全列表</li>
 </ol>
-<pre><code class="language-typescript">
-                <pre class="hljs"><code><span class="hljs-keyword">const</span> safelist = [
+<pre class="hljs"><code><span class="hljs-keyword">const</span> safelist = [
     ...[
         <span class="hljs-string">&quot;search&quot;</span>,
         <span class="hljs-string">&quot;edit&quot;</span>,
@@ -226,13 +221,12 @@
     ].<span class="hljs-title function_">map</span>(<span class="hljs-function">(<span class="hljs-params">v</span>) =&gt;</span> <span class="hljs-string">`i-ic-baseline-<span class="hljs-subst">${v}</span>`</span>),
     ...
 ];
-</code></pre></code></pre>
+</code></pre>
 <h3>编写</h3>
 <ol start="2">
 <li>扩展组件</li>
 </ol>
-<pre><code class="language-typescript">
-                <pre class="hljs"><code><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-title function_">defineComponent</span>({
+<pre class="hljs"><code><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-title function_">defineComponent</span>({
     <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;GButton&#x27;</span>,
     props,
     <span class="hljs-title function_">setup</span>(<span class="hljs-params">props, { slots }</span>) {
@@ -260,13 +254,12 @@
         <span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span>
     }
 })
-</code></pre></code></pre>
+</code></pre>
 <h3>挂载</h3>
 <ol start="3">
 <li>挂载组件到入口</li>
 </ol>
-<pre><code class="language-typescript">
-                <pre class="hljs"><code><span class="hljs-keyword">import</span> { createApp } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;vue/dist/vue.esm-bundler.js&quot;</span>;
+<pre class="hljs"><code><span class="hljs-keyword">import</span> { createApp } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;vue/dist/vue.esm-bundler.js&quot;</span>;
 
 <span class="hljs-keyword">import</span> <span class="hljs-title class_">GButton</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./Button&quot;</span>;
 <span class="hljs-title function_">createApp</span>({
@@ -281,13 +274,12 @@
 `</span> })
     .<span class="hljs-title function_">component</span>(<span class="hljs-title class_">GButton</span>.<span class="hljs-property">name</span>, <span class="hljs-title class_">GButton</span>)
     .<span class="hljs-title function_">mount</span>(<span class="hljs-string">&quot;#app-default&quot;</span>);
-</code></pre></code></pre>
+</code></pre>
 <h3>预览</h3>
 <p><img src="https://cdn.nlark.com/yuque/0/2022/png/2373519/1665370654276-c81a687d-5da2-4dbc-8a51-54a0bd05123c.png#clientId=udaf71914-ea21-4&amp;crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;errorMessage=unknown%20error&amp;from=paste&amp;height=163&amp;id=ub124ba6d&amp;margin=%5Bobject%20Object%5D&amp;name=default-button-unocss-icon.png&amp;originHeight=163&amp;originWidth=607&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=7811&amp;status=error&amp;style=none&amp;taskId=udf5ae035-bdfb-40b9-9fd5-f6076f1d845&amp;title=&amp;width=607" alt="default-button-unocss-icon.png"></p>
 <h2>配置组件库入口</h2>
 <p>扩展组件入口（<code>./src/entry.ts</code>）：</p>
-<pre><code class="language-typescript">
-                <pre class="hljs"><code><span class="hljs-keyword">import</span> { <span class="hljs-title class_">App</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;vue&quot;</span>;
+<pre class="hljs"><code><span class="hljs-keyword">import</span> { <span class="hljs-title class_">App</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;vue&quot;</span>;
 ···
 <span class="hljs-keyword">import</span> <span class="hljs-title class_">GButton</span> <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./Button&quot;</span>;
 
@@ -301,11 +293,10 @@
         app.<span class="hljs-title function_">component</span>(<span class="hljs-title class_">GButton</span>.<span class="hljs-property">name</span>, <span class="hljs-title class_">GButton</span>);
     }
 }
-</code></pre></code></pre>
+</code></pre>
 <h2>增加编译配置</h2>
 <p><img src="https://cdn.nlark.com/yuque/0/2022/png/2373519/1665370738407-078a0afe-8328-4e4d-bfef-110c22f820d5.png#clientId=udaf71914-ea21-4&amp;crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;errorMessage=unknown%20error&amp;from=paste&amp;height=536&amp;id=ud1bf5426&amp;margin=%5Bobject%20Object%5D&amp;name=build-unocss-error.png&amp;originHeight=536&amp;originWidth=752&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=317045&amp;status=error&amp;style=none&amp;taskId=u7085dc1a-5955-48e5-a914-ec6ca762e08&amp;title=&amp;width=752" alt="build-unocss-error.png"></p>
-<pre><code class="language-typescript">
-                <pre class="hljs"><code><span class="hljs-keyword">import</span> { defineConfig } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;vite&quot;</span>;
+<pre class="hljs"><code><span class="hljs-keyword">import</span> { defineConfig } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;vite&quot;</span>;
 <span class="hljs-keyword">import</span> vuePlugin <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@vitejs/plugin-vue&quot;</span>;
 <span class="hljs-keyword">import</span> vueJSXPlugin <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;@vitejs/plugin-vue-jsx&quot;</span>;
 <span class="hljs-keyword">import</span> { presetUno, presetAttributify, presetIcons } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;unocss&quot;</span>;
@@ -353,11 +344,10 @@
         <span class="hljs-attr">cssCodeSplit</span>: <span class="hljs-literal">true</span>,
     }
 })
-</code></pre></code></pre>
+</code></pre>
 <h2>测试输出模块</h2>
 <h3><a href="http://127.0.0.1:5173/demo/preview-esm-03.html">esm模块+样式+icon</a></h3>
-<pre><code class="language-html">
-                <pre class="hljs"><code><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
+<pre class="hljs"><code><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span>
 
 <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
@@ -399,11 +389,10 @@
 <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
 
 <span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
-</code></pre></code></pre>
+</code></pre>
 <p><img src="https://cdn.nlark.com/yuque/0/2022/png/2373519/1665370919786-39d0dbe6-0e58-4972-b5c9-aba3269cece3.png#clientId=u373330a6-e0a7-4&amp;crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;errorMessage=unknown%20error&amp;from=paste&amp;height=131&amp;id=uaa9c78eb&amp;margin=%5Bobject%20Object%5D&amp;name=esm-unocss-demo.png&amp;originHeight=131&amp;originWidth=606&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=10585&amp;status=error&amp;style=none&amp;taskId=u82ee5474-7c59-418d-8ee1-155eac35c59&amp;title=&amp;width=606" alt="esm-unocss-demo.png"></p>
 <h3><a href="http://127.0.0.1:5173/demo/preview-iife-03.html">iife模块+样式+icon</a></h3>
-<pre><code class="language-html">
-                <pre class="hljs"><code><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
+<pre class="hljs"><code><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span>
 
 <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
@@ -444,11 +433,10 @@
 <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
 
 <span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
-</code></pre></code></pre>
+</code></pre>
 <p><img src="https://cdn.nlark.com/yuque/0/2022/png/2373519/1665371024731-bb172785-a6f6-4515-b7c8-b2d6110f5dd6.png#clientId=u373330a6-e0a7-4&amp;crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;errorMessage=unknown%20error&amp;from=paste&amp;height=133&amp;id=u34cf8828&amp;margin=%5Bobject%20Object%5D&amp;name=iife-unocss-demo.png&amp;originHeight=133&amp;originWidth=619&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=10599&amp;status=error&amp;style=none&amp;taskId=u065aba35-99c6-45a1-af02-f09282bb622&amp;title=&amp;width=619" alt="iife-unocss-demo.png"></p>
 <h3><a href="http://127.0.0.1:5173/demo/preview-umd-03.html">umd模块+样式+icon</a></h3>
-<pre><code class="language-html">
-                <pre class="hljs"><code><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
+<pre class="hljs"><code><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span>
 
 <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
@@ -488,6 +476,6 @@
 <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
 
 <span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
-</code></pre></code></pre>
+</code></pre>
 <p><img src="https://cdn.nlark.com/yuque/0/2022/png/2373519/1665371057530-50808034-89b4-4b36-8c79-71b5e22c6b3c.png#clientId=u373330a6-e0a7-4&amp;crop=0&amp;crop=0&amp;crop=1&amp;crop=1&amp;errorMessage=unknown%20error&amp;from=paste&amp;height=135&amp;id=ub891ab4c&amp;margin=%5Bobject%20Object%5D&amp;name=umd-unocss-demo.png&amp;originHeight=135&amp;originWidth=644&amp;originalType=binary&amp;ratio=1&amp;rotation=0&amp;showTitle=false&amp;size=10644&amp;status=error&amp;style=none&amp;taskId=uc3374281-d71c-4e74-8919-a873e40f09c&amp;title=&amp;width=644" alt="umd-unocss-demo.png"></p>
 
