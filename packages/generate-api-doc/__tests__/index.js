@@ -1,5 +1,5 @@
 import * as path from 'path';
-import * as fs from 'fs';
+import * as fs from 'fs-extra';
 import { transformFileSync } from '@babel/core';
 
 describe('', () => {
@@ -9,7 +9,7 @@ describe('', () => {
     if (!fs.statSync(fixtureDir).isDirectory()) return;
 
     it(`should ${caseName.split('-').join(' ')}`, () => {
-      const actualPath = path.join(fixtureDir, 'actual.ts');
+      const actualPath = path.join(fixtureDir, 'source-code.ts');
 
       // 执行转换后生成API文档
       transformFileSync(actualPath)
