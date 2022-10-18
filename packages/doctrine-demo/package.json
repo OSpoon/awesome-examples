@@ -1,0 +1,15 @@
+{
+  "name": "doctrine-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "esno ./src/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "doctrine": "^3.0.0"
+  }
+}

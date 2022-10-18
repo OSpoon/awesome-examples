@@ -1,0 +1,31 @@
+{
+  "name": "babel-plugin-generate-api-doc",
+  "version": "0.0.0",
+  "description": "",
+  "author": "OSpoon <zxin088@gmail.com>",
+  "main": "lib/index.js",
+  "dependencies": {
+    "@babel/runtime": "^7.10.5"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.10.5",
+    "@babel/plugin-transform-runtime": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-typescript": "^7.10.4",
+    "@types/doctrine": "^0.0.5",
+    "doctrine": "^3.0.0",
+    "jest": "^26.1.0",
+    "rimraf": "^3.0.2"
+  },
+  "scripts": {
+    "clean": "rimraf ./lib",
+    "build": "babel src -d lib -x .ts",
+    "test": "jest __tests__/index.js",
+    "test:watch": "npm run test -- --watch",
+    "prepublish": "npm run clean && npm run build"
+  },
+  "keywords": [
+    "babel-plugin"
+  ]
+}
