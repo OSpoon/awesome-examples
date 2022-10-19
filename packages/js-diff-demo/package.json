@@ -1,0 +1,17 @@
+{
+  "name": "js-diff-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "esno ./src/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/diff": "^5.0.2",
+    "colors": "^1.4.0",
+    "diff": "^5.1.0"
+  }
+}
