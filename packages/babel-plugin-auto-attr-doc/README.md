@@ -1,4 +1,4 @@
-# babel-plugin-generate-api-doc
+# babel-plugin-auto-attr-doc
 
 
 
@@ -21,7 +21,7 @@
 ## Installation
 
 ```sh
-$ npm install babel-plugin-generate-api-doc
+$ npm install babel-plugin-auto-attr-doc
 ```
 
 ## Usage
@@ -32,20 +32,20 @@ $ npm install babel-plugin-generate-api-doc
 
 ```json
 {
-  "plugins": ["generate-api-doc"]
+  "plugins": ["auto-attr-doc"]
 }
 ```
 
 ### Via CLI
 
 ```sh
-$ babel --plugins generate-api-doc script.js
+$ babel --plugins auto-attr-doc script.js
 ```
 
 ### Via Node API
 
 ```javascript
 require("@babel/core").transform("code", {
-  plugins: ["generate-api-doc"]
+  plugins: ["auto-attr-doc"]
 });
 ```

@@ -1,8 +1,7 @@
 {
-  "name": "babel-plugin-generate-api-doc",
+  "name": "babel-plugin-auto-attr-doc",
   "version": "0.0.0",
   "description": "",
-  "author": "OSpoon <zxin088@gmail.com>",
   "main": "lib/index.js",
   "dependencies": {
     "@babel/runtime": "^7.10.5"
@@ -10,10 +9,14 @@
   "devDependencies": {
     "@babel/cli": "^7.10.5",
     "@babel/core": "^7.10.5",
+    "@babel/helper-plugin-utils": "^7.10.5",
     "@babel/plugin-transform-runtime": "^7.10.5",
     "@babel/preset-env": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
-    "@types/doctrine": "^0.0.5",
+    "@types/babel__helper-plugin-utils": "^7.10.0",
+    "@types/diff": "^5.0.2",
+    "@types/doctrine": "0.0.5",
+    "diff": "^5.1.0",
     "doctrine": "^3.0.0",
     "jest": "^26.1.0",
     "rimraf": "^3.0.2"
