@@ -1,0 +1,23 @@
+{
+  "name": "diff-print",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "module": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "run": "esno index.ts",
+    "build": "tsc index.ts",
+    "release": "release-it"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/diff": "^5.0.2",
+    "diff": "^5.1.0",
+    "release-it": "^15.5.0"
+  }
+}
