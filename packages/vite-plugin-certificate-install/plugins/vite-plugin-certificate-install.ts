@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import type { Plugin, ResolvedConfig, ViteDevServer } from "vite";
+import type { Plugin, ViteDevServer } from "vite";
 import qrcode from "qrcode-terminal";
 import { bold, green } from "kolorist";
 
@@ -12,15 +12,10 @@ export type Options = {
 const certificateInstall = (options: Options) => {
     const { path: _path, pem: _pem } = options;
 
-    let config: ResolvedConfig;
-
     return {
         name: 'vite-plugin-certificate-install',
         apply(_, { command }) {
             return command === 'serve'
-        },
-        configResolved(_config) {
-            config = _config
         },
         configureServer(server: ViteDevServer) {
             server.middlewares.use((req, res, next) => {
