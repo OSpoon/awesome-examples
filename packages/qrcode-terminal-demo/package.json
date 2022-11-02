@@ -4,12 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "npx esno ./index.ts"
+    "dev": "npx esno ./index.ts",
+    "build": "tsup ./index.ts --dts --format cjs,esm"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "qrcode-terminal": "^0.12.0"
+    "qrcode-terminal": "^0.12.0",
+    "tsup": "^6.3.0"
   }
 }
