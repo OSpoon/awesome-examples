@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import type { Plugin, ViteDevServer } from "vite";
 import qrcode from "qrcode-terminal";
-import { bold, green } from "kolorist";
+import { bold, green, yellow } from "kolorist";
 
 export type Options = {
     path: string,
@@ -44,8 +44,7 @@ const certificateInstall = (options: Options) => {
                     console.log(`${bold('Install Root Certificate on a Mobile Device ⤦')}`);
                     qrcode.generate(`${host}__certificate/`, { small: true });
                 } else {
-                    const colorUrl = (url: string) => green(url.replace(/:(\d+)\//, (_, port) => `:${bold(port)}/`));
-                    console.log(`  ${green('➜')}  ${colorUrl('Failed to get the network address.')}`);
+                    console.log(`  ${green('➜')}  ${yellow('Failed to get the network address.')}`);
                 }
             }
         },
