@@ -44,7 +44,8 @@ const certificateInstall = (options: Options) => {
                     console.log(`${bold('Install Root Certificate on a Mobile Device ⤦')}`);
                     qrcode.generate(`${host}__certificate/`, { small: true });
                 } else {
-                    console.log(`${green('Failed to get the network address.')}`);
+                    const colorUrl = (url: string) => green(url.replace(/:(\d+)\//, (_, port) => `:${bold(port)}/`));
+                    console.log(`  ${green('➜')}  ${colorUrl('Failed to get the network address.')}`);
                 }
             }
         },
