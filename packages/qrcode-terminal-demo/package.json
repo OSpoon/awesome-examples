@@ -1,0 +1,15 @@
+{
+  "name": "qrcode-terminal-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx esno ./index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "qrcode-terminal": "^0.12.0"
+  }
+}
