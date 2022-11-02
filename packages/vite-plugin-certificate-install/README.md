@@ -111,3 +111,15 @@ server.printUrls = () => {
 ```
 
 ![](./images/terminal.png)
+
+## 插件打包
+
+在插件打包时我们还是要考虑到使用者非TypeScript开发环境，所以需要转为JavaScript后进行分发，`tsup`模块利用esbuild在不需要任何配置的情况下就可以对Ts进行编译。
+
+需要在项目中安装`tsup`到开发依赖，请不要直接通过`npx`使用，可能会因为找不到`typescript`模块而终止掉部分编译流程；
+
+安装后使用如下命令编译插件，需要指定入口文件、出口目录、编译.d.ts文件、输出模块类型选项：
+
+```sh
+tsup ./plugins/vite-plugin-certificate-install.ts --outDir output --dts --format cjs,esm
+```
