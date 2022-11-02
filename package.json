@@ -13,6 +13,8 @@
     "@types/fs-extra": "^9.0.13",
     "@types/node": "^18.11.0",
     "esno": "^0.16.3",
-    "fs-extra": "^10.1.0"
+    "fs-extra": "^10.1.0",
+    "kolorist": "^1.6.0",
+    "qrcode-terminal": "^0.12.0"
   }
 }
