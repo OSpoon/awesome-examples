@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "moduleResolution": "Node",
+        "resolveJsonModule": true
+    },
+    "include": [
+        "vite.config.ts",
+        "./src/index.ts"
+    ]
+}
