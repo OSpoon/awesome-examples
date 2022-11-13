@@ -1,0 +1,17 @@
+{
+  "name": "http2-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "http": "npx esno ./server-http.ts",
+    "http2": "npx esno ./server-http2.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.11.9",
+    "esno": "^0.16.3"
+  }
+}
