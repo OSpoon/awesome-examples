@@ -176,6 +176,25 @@ importers:
       vite: 4.0.2
       vue-tsc: 1.0.14_typescript@4.9.4
 
+  packages/logic-flow-custom-group:
+    specifiers:
+      '@logicflow/core': ^1.1.31
+      '@logicflow/extension': ^1.1.31
+      '@vitejs/plugin-vue': ^4.0.0
+      typescript: ^4.9.3
+      vite: ^4.0.0
+      vue: ^3.2.45
+      vue-tsc: ^1.0.11
+    dependencies:
+      '@logicflow/core': 1.1.31
+      '@logicflow/extension': 1.1.31
+      vue: 3.2.45
+    devDependencies:
+      '@vitejs/plugin-vue': 4.0.0_vite@4.0.2+vue@3.2.45
+      typescript: 4.9.4
+      vite: 4.0.2
+      vue-tsc: 1.0.14_typescript@4.9.4
+
   packages/logic-flow-custom-node:
     specifiers:
       '@logicflow/core': ^1.1.31
