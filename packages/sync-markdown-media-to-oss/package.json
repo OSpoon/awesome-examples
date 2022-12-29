@@ -1,0 +1,25 @@
+{
+  "name": "sync-markdown-media-to-oss",
+  "version": "0.0.1",
+  "description": "",
+  "type": "module",
+  "bin": {
+    "mkcli": "./dist/index.cjs"
+  },
+  "scripts": {
+    "build": "node ./scripts/build.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.20.7",
+    "@babel/preset-env": "^7.20.2",
+    "ali-oss": "^6.17.1",
+    "axios": "^1.2.1",
+    "cac": "^6.7.14",
+    "esbuild": "^0.16.12",
+    "fs-extra": "^11.1.0",
+    "picocolors": "^1.0.0"
+  }
+}
